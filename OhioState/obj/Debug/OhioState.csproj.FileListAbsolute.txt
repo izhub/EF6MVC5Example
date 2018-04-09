@@ -42,3 +42,7 @@ c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\bin\New
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.csprojResolveAssemblyReference.cache
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.dll
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.pdb
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.dll
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.Mvc.dll
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.xml
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.Mvc.xml

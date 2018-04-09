@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OhioState.DAL;
+using OhioState.Models;
+using PagedList;
+using System;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using OhioState.DAL;
-using OhioState.Models;
 
 namespace OhioState.Controllers
 {
@@ -16,9 +14,51 @@ namespace OhioState.Controllers
         private SchoolContext db = new SchoolContext();
 
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Students.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var students = from s in db.Students select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                               || s.FirstMidName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1); //the two question marks represent the null-coalescing operator. 
+            return View(students.ToPagedList(pageNumber, pageSize));
+            //the ToPagedList extension method on the students IQueryable object converts the student query to a single page of students in a collection type that supports paging.
         }
 
         // GET: Student/Details/5
@@ -47,7 +87,7 @@ namespace OhioState.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         //ValidateAntiForgeryToken helps prevent cross-site request forgery attacks
         [HttpPost]
-        [ValidateAntiForgeryToken] 
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LastName,FirstMidName,EnrollmentDate")] Student student)
         {
             try
@@ -62,7 +102,7 @@ namespace OhioState.Controllers
             catch (DataException dex)
             {
                 //Log the error dex catches
-                ModelState.AddModelError("","Unable to save changes. Try again, and if the problem persists, see your administrator.");
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your administrator.");
             }
             return View(student);
         }
@@ -87,14 +127,14 @@ namespace OhioState.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost (int? id)
+        public ActionResult EditPost(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var studentToUpdate = db.Students.Find(id);
-            if (TryUpdateModel(studentToUpdate, "", new string[] {"LastName", "FirstMidName", "EnrollmentDate"}))
+            if (TryUpdateModel(studentToUpdate, "", new string[] { "LastName", "FirstMidName", "EnrollmentDate" }))
             {
                 try
                 {
@@ -117,7 +157,7 @@ namespace OhioState.Controllers
         /// <param name="id"></param>
         /// <param name="saveChangesError"></param>
         /// <returns></returns>
-        public ActionResult Delete(int? id, bool? saveChangesError=false)
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -155,9 +195,9 @@ namespace OhioState.Controllers
             catch (DataException dex)
             {
                 //Log the error
-                return RedirectToAction("Delete", new {id = id, saveChangesError = true});
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
-           
+
             return RedirectToAction("Index");
         }
 

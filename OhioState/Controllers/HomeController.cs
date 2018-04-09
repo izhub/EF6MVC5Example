@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
+using OhioState.DAL;
+using OhioState.Models;
+using OhioState.ViewModels;
 
 namespace OhioState.Controllers
 {
     public class HomeController : Controller
     {
+        private SchoolContext db = new SchoolContext();
+
+
         public ActionResult Index()
         {
             return View();
@@ -15,9 +22,16 @@ namespace OhioState.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            IQueryable<EnrollmentDateGroup> data = from student in db.Students
+                group student by student.EnrollmentDate
+                into dateGroup
+                select new EnrollmentDateGroup()
+                {
+                    EnrollmentDate = dateGroup.Key,
+                    StudentCount = dateGroup.Count()
+                };
 
-            return View();
+            return View(data.ToList());
         }
 
         public ActionResult Contact()
@@ -25,6 +39,12 @@ namespace OhioState.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
