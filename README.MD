@@ -11,7 +11,7 @@ Getting Started with EF 6 using MVC 5
 - Creating an Entity Framework Data Model
     - created an MVC application that stores and displays data using the Entity Framework and SQL Server LocalDB.
 - Implementing Basic CRUD Functionality
-
+    - reviewed and customized the CRUD (create, read, update, delete) code that the MVC scaffolding automatically creates 
 - Sorting, Filtering, and Paging
 
 - Connection Resiliency and Command Interception
