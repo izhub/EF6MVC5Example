@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Data.Entity.Infrastructure;
 
 namespace OhioState.Controllers
 {
@@ -99,7 +100,7 @@ namespace OhioState.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException dex)
+            catch (RetryLimitExceededException dex)
             {
                 //Log the error dex catches
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your administrator.");
@@ -141,7 +142,7 @@ namespace OhioState.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                catch (DataException dex)
+                catch (RetryLimitExceededException dex)
                 {
                     //Log the error
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
@@ -192,7 +193,7 @@ namespace OhioState.Controllers
                 db.Students.Remove(student);
                 db.SaveChanges();
             }
-            catch (DataException dex)
+            catch (RetryLimitExceededException dex)
             {
                 //Log the error
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
