@@ -15,7 +15,7 @@ Getting Started with EF 6 using MVC 5
 - Sorting, Filtering, and Paging
     - implemented sorting, filtering and paging. Also, created a page that does simple grouping.
 - Connection Resiliency and Command Interception
-
+    - enabled connection resiliency and log SQL commands that Entity Framework composes and sends to the database.
 - Code First Migrations and Deployment
 
 - Creating a More Complex Data Model
