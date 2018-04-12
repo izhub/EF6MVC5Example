@@ -46,3 +46,5 @@ C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\Pag
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.Mvc.dll
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.xml
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.Mvc.xml
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.Migrations.InitialCreate.resources
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.csproj.GenerateResource.Cache
