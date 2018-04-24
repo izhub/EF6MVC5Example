@@ -10,6 +10,7 @@ namespace OhioState.DAL
         //The name of the connection string (added to the Web.config) is passed in to the constructor.
         public SchoolContext() : base("SchoolContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Course> Courses { get; set; }

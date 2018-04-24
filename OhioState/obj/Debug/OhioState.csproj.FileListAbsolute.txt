@@ -39,7 +39,6 @@ c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\bin\Sys
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\bin\System.Web.WebPages.Razor.xml
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\bin\Antlr3.Runtime.pdb
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\bin\Newtonsoft.Json.xml
-c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.csprojResolveAssemblyReference.cache
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.dll
 c:\users\20831\documents\visual studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.pdb
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\bin\PagedList.dll
@@ -51,3 +50,4 @@ C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Deb
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.Migrations.MaxLengthOnNames.resources
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.Migrations.ColumnFirstName.resources
 C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.Migrations.ComplexDataModel.resources
+C:\Users\20831\Documents\Visual Studio 2015\Projects\OhioState\OhioState\obj\Debug\OhioState.csprojResolveAssemblyReference.cache
