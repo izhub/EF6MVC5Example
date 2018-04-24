@@ -19,7 +19,7 @@ Getting Started with EF 6 using MVC 5
 - Code First Migrations and Deployment
     - enabled Code First Migrations, skipped deploy to Azure.
 - Creating a More Complex Data Model
-
+    - added more entities and relationships, customized the data model by specifying formatting, validation, and database mapping rules. 
 - Reading Related Data
 
 - Updating Related Data
