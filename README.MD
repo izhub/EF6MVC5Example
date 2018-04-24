@@ -21,7 +21,7 @@ Getting Started with EF 6 using MVC 5
 - Creating a More Complex Data Model
     - added more entities and relationships, customized the data model by specifying formatting, validation, and database mapping rules. 
 - Reading Related Data
-
+    - used all three ways (lazy, eager, and explicit) to load related data into navigation properties. 
 - Updating Related Data
 
 - Async and Stored Procedures
