@@ -23,7 +23,7 @@ Getting Started with EF 6 using MVC 5
 - Reading Related Data
     - used all three ways (lazy, eager, and explicit) to load related data into navigation properties. 
 - Updating Related Data
-
+    - For many-to-many relationships, the Entity Framework doesn't expose the join table directly, so added and removed entities to and from the appropriate navigation properties.
 - Async and Stored Procedures
 
 - Handling Concurrency
