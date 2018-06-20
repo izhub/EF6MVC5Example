@@ -60,7 +60,7 @@ Getting Started with EF 6 using MVC 5
 - Updating Related Data
     - For many-to-many relationships, the Entity Framework doesn't expose the join table directly, so added and removed entities to and from the appropriate navigation properties.
 - Async and Stored Procedures
-
+    - added async department controller and accompanying classes, converted db to use stored procedures for insert, update, and delete operations on an entity.
 - Handling Concurrency
 
 - Implementing Inheritance
